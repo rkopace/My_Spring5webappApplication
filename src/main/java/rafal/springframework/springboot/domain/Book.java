@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,12 +28,17 @@ public class Book {
 
 	private String title;
 	private String isbn;
+	
+	private Publisher publisher;
 
 	@ManyToMany
 	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private Set<Author> authors = new HashSet<>();
 
-	
+	@ManyToOne
+//	@JoinTable(name = "publisher_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "publisher_id"))
+	private Set<Publisher> publishers = new HashSet<>();
+ 	
 	public Book(String title, String isbn) {
 		super();
 		this.title = title;
@@ -40,6 +46,18 @@ public class Book {
 	}
 	
 	
+
+	public Publisher getPublisher() {
+		return publisher;
+	}
+
+
+
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
+	}
+
+
 
 	public Long getId() {
 		return id;
