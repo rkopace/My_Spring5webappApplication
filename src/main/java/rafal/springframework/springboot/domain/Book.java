@@ -29,15 +29,16 @@ public class Book {
 	private String title;
 	private String isbn;
 	
+	@ManyToOne
 	private Publisher publisher;
 
 	@ManyToMany
 	@JoinTable(name = "author_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "author_id"))
 	private Set<Author> authors = new HashSet<>();
 
-	@ManyToOne
+	
 //	@JoinTable(name = "publisher_book", joinColumns = @JoinColumn(name = "book_id"), inverseJoinColumns = @JoinColumn(name = "publisher_id"))
-	private Set<Publisher> publishers = new HashSet<>();
+//	private Set<Publisher> publishers = new HashSet<>();
  	
 	public Book(String title, String isbn) {
 		super();
@@ -46,6 +47,21 @@ public class Book {
 	}
 	
 	
+
+	
+
+
+
+	public Book() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
+
 
 	public Publisher getPublisher() {
 		return publisher;

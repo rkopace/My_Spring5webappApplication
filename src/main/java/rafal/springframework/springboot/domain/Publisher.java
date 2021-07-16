@@ -28,6 +28,22 @@ public class Publisher {
     private Set<Book> books = new HashSet<>();
  
     
+    
+    
+	public Publisher(Long id, String name, String addressLine1, String city, String state, String zip,
+			Set<Book> books) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.addressLine1 = addressLine1;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.books = books;
+	}
+
+
+
 	public Publisher() {
 		super();
 	}
