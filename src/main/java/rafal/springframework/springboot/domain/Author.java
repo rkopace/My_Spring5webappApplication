@@ -16,7 +16,6 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,6 +37,15 @@ public class Author {
 	
 	
 	
+	public Author() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
+
+
 	public Long getId() {
 		return id;
 	}
